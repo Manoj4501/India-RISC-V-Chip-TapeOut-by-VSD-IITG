@@ -1,0 +1,53 @@
+# Chip Modeling and Digital VLSI SoC Design Workflow  
+
+## 1. C-Based Modeling (O1)  
+- Model the application in **C** using GCC with `-O0` optimization.  
+- Compare outputs with `-O1` optimization for target processors (RISC, ARM).  
+- **Goal:** Match O0 and O1 outputs → freeze as **specification baseline**.  
+
+---
+
+## 2. RTL Architecture (O2)  
+- Convert the validated specification into **RTL (Verilog)**.  
+- Create a **gate-level representation** of the architecture.  
+- Simulate the application on RTL.  
+- **Goal:** Ensure O2 RTL outputs match O1 C model outputs.  
+
+---
+
+## 3. RTL Processing & IP Integration (O3)  
+- Partition RTL into **Processor** and **Peripheral IPs**:  
+  - **Processor:** Synthesizable, gate-level CPU.  
+  - **Peripheral IPs:**  
+    - Digital macros (synth RTL).  
+    - Analog functional RTL (e.g., ADCs, PLLs).  
+- Integrate blocks into a unified **SoC** (with GPIOs, etc.).  
+- **Goal:** Outputs consistent across O1, O2, and O3.  
+
+---
+
+## 4. Physical Design & Tapeout (O4)  
+- Perform **physical design**: floorplanning, placement, CTS, routing.  
+- Generate and verify **GDSII** (DRC/LVS checks).  
+- Proceed with **tapeout**, fabrication, packaging, and testing.  
+- Validate design on silicon by running the same application.  
+- **Target:** Processor runs at **100–130 MHz**.  
+
+---
+
+## ✅ Summary  
+This workflow (O1 → O4) ensures **functional correctness, design integrity, and performance validation** from high-level C modeling to final silicon.  
+
+---
+
+## 📊 Workflow Diagram  
+
+```mermaid
+flowchart TD
+    A[O1: C-Based Modeling] --> B[O2: RTL Architecture]
+    B --> C[O3: RTL + IP Integration]
+    C --> D[O4: Physical Design & Tapeout]
+    
+    A:::phase --> B:::phase --> C:::phase --> D:::phase
+
+    classDef phase fill=#2563eb,stroke=#0f172a,color=white,stroke-width=2px,rx=10,ry=10
