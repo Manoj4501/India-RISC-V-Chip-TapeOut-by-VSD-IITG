@@ -169,12 +169,12 @@ python3 -m venv -h
 ________________________________________
 ✅ Verification Summary
 Tool	          Command	            Expected Result
-Yosys  	          yosys -V	          Version info
+Yosys  	          yosys -V	            Version info
 Icarus Verilog	  iverilog -V	        Version info
-GTKWave	          gtkwave --version	  Version info
+GTKWave	          gtkwave --version	    Version info
 Ngspice	          ngspice -v	        Version info
-Magic	          magic -v	          Version info
-OpenLane	      make test	          Runs test cases
+Magic	          magic -v	            Version info
+OpenLane	      make test	            Runs test cases
 ________________________________________
 
 📌 Notes
