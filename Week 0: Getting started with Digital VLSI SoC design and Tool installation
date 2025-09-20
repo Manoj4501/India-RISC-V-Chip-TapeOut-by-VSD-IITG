@@ -51,8 +51,8 @@ This structured workflow (O1 → O4), combined with robust **toolchain setup** a
 To ensure optimal performance, the Virtual Machine (VM) was configured with:
 Specification	      Details
 Operating System	  Ubuntu 20.04+
-RAM	                6 GB
-Storage	            50 GB HDD
+RAM	                  6 GB
+Storage	              50 GB HDD
 vCPUs	              4
 💡 Pro Tip: This setup ensures smooth toolchain performance and simulation execution.
 ________________________________________
